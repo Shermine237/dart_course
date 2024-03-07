@@ -47,6 +47,4 @@ abstract class Logement{
     this.est_disponible = disponibility;
   }
 
-  //Methods
-
 }

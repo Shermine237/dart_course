@@ -1,7 +1,7 @@
 import 'elementSocial.dart' show ElementSocial;
 import 'commentable.dart' show Commentable;
 
-class Video extends ElementSocial with Commentable{
+class Video extends ElementSocial implements Commentable{
   String lienVideo;
   int duree;
 
@@ -11,5 +11,9 @@ class Video extends ElementSocial with Commentable{
   void afficherDetails(){
     super.afficherDetails();
     print('Video: ${this.lienVideo}\nDuree: ${this.duree}');
+  }
+
+  void ajouterCommentaire(String commentaire){
+    print("Nouveau commentaire: ${commentaire}");
   }
 }
