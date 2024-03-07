@@ -1,7 +1,7 @@
 import 'elementSocial.dart' show ElementSocial;
 import 'commentable.dart' show Commentable;
 
-class Photo extends ElementSocial implements Commentable{
+class Photo extends ElementSocial with Commentable{
   String cheminImage;
   String filtreUtilise;
 
@@ -13,7 +13,4 @@ class Photo extends ElementSocial implements Commentable{
     print('Photo: ${this.cheminImage}\nFiltre: ${this.filtreUtilise}');
   }
 
-  void ajouterCommentaire(String commentaire){
-    print("Nouveau commentaire: ${commentaire}");
-  }
 }
