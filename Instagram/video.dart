@@ -1,13 +1,15 @@
 import 'elementSocial.dart' show ElementSocial;
+import 'commentable.dart' show Commentable;
 
-class Video extends ElementSocial{
-  String lien_video;
+class Video extends ElementSocial with Commentable{
+  String lienVideo;
+  int duree;
 
-  Video(super.auteur, super.datePublication, this.lien_video);
+  Video(super.auteur, super.datePublication, this.lienVideo, this.duree);
 
   @override
   void afficherDetails(){
     super.afficherDetails();
-    print('Photo: ${this.lien_video}');
+    print('Video: ${this.lienVideo}\nDuree: ${this.duree}');
   }
 }

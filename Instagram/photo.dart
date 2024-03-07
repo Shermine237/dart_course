@@ -1,13 +1,15 @@
 import 'elementSocial.dart' show ElementSocial;
+import 'commentable.dart' show Commentable;
 
-class Photo extends ElementSocial{
-  String lien_photo;
+class Photo extends ElementSocial with Commentable{
+  String cheminImage;
+  String filtreUtilise;
 
-  Photo(super.auteur, super.datePublication, this.lien_photo);
+  Photo(super.auteur, super.datePublication, this.cheminImage, this.filtreUtilise);
 
   @override
   void afficherDetails(){
     super.afficherDetails();
-    print('Photo: ${this.lien_photo}');
+    print('Photo: ${this.cheminImage}\nFiltre: ${this.filtreUtilise}');
   }
 }
