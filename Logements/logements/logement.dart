@@ -1,4 +1,4 @@
-import '../mixin/periodique.dart' show Periodique;
+import '../mixins/periodique.dart' show Periodique;
 
 abstract class Logement with Periodique{
   String _nom_logement;

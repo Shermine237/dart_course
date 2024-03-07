@@ -1,5 +1,5 @@
 import 'paiement.dart' show Paiement;
-import '../mixin/periodique.dart' show Periodique;
+import '../mixins/periodique.dart' show Periodique;
 
 class ContratLocation with Periodique{
   bool statut_active = true;
