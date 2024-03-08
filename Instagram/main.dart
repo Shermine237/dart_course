@@ -1,5 +1,5 @@
-import 'photo.dart' show Photo;
-import 'video.dart' show Video;
+import './photo.dart' show Photo;
+import './video.dart' show Video;
 
 void main(){
   Photo photo1 = Photo("Jean Pierre", DateTime.now(), "/home/user/img.jpg", "Negatif");

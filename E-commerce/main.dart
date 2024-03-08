@@ -1,5 +1,5 @@
-import 'produit.dart' show Produit; // Importe uniquement la classe Produit
-import 'categorieProduit.dart' show CategorieProduit;
+import './produit.dart' show Produit; // Importe uniquement la classe Produit
+import './categorieProduit.dart' show CategorieProduit;
 
 void main() {
   // Utilisation de la classe Produit

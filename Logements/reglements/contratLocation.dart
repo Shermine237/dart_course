@@ -1,4 +1,4 @@
-import 'paiement.dart' show Paiement;
+import './paiement.dart' show Paiement;
 import '../mixins/periodique.dart' show Periodique;
 
 class ContratLocation with Periodique{

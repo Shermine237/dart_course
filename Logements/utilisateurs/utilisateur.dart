@@ -1,6 +1,7 @@
 abstract class Utilisateur{
   String _nom;
   String _email;
+  String role = "";
 
   Utilisateur(this._nom, this._email);
 
@@ -23,6 +24,10 @@ abstract class Utilisateur{
   }
 
   //Methods
+  void se_presenter(){
+    print('Nom: ${_nom}\nEmail: ${_email}\nRole: ${role}');
+  }
+
   bool se_connecter(){
     return true;
   }

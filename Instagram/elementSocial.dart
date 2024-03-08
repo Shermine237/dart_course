@@ -1,4 +1,4 @@
-import 'publication.dart' show Publication;
+import './publication.dart' show Publication;
 
 class ElementSocial extends Publication{
 

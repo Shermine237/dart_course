@@ -1,5 +1,5 @@
-import 'elementSocial.dart' show ElementSocial;
-import 'commentable.dart' show Commentable;
+import './elementSocial.dart' show ElementSocial;
+import './commentable.dart' show Commentable;
 
 class Video extends ElementSocial with Commentable{
   String lienVideo;

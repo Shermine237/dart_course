@@ -1,4 +1,4 @@
-import 'logement.dart' show Logement;
+import './logement.dart' show Logement;
 
 class LogementMeuble extends Logement{
   String _accessoires;

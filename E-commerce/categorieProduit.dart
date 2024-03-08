@@ -1,4 +1,4 @@
-import 'produit.dart' show Produit; // Importe uniquement la classe Produit
+import './produit.dart' show Produit; // Importe uniquement la classe Produit
 
 class CategorieProduit extends Produit{
   String categorie;
