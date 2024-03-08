@@ -8,8 +8,6 @@ abstract class Logement with Periodique, Commentable{
   bool est_disponible = true;
   late Tarification _tarif_jour;
   late String _description;
-  late DateTime debut_reservation;
-  late DateTime fin_reservation;
 
   Logement(this._nom_logement, this._localisation);
 
@@ -26,8 +24,8 @@ abstract class Logement with Periodique, Commentable{
     return _description;
   }
 
-  int get_tarif_jour(){
-    return _tarif_jour.get_tarif_jour();
+  Tarification get_tarif_jour(){
+    return _tarif_jour;
   }
 
   //Setter
@@ -58,12 +56,4 @@ abstract class Logement with Periodique, Commentable{
     print('Disponible du ${this.date_debut} au ${this.date_fin}');
   }
 
-  void reserver(DateTime debut, DateTime fin){
-    this.debut_reservation = debut;
-    this.fin_reservation = fin;
-  }
-
-  int cout_total(){
-    return _tarif_jour.cout_total(this.debut_reservation, this.fin_reservation);
-  }
 }
