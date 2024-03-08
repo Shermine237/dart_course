@@ -52,7 +52,7 @@ void main(){
     if(reservation2.disponible){
       ContratLocation contratLocation = ContratLocation(reservation2);
       Paiement paiement1 = Paiement(50000, DateTime.now(), locataire1);
-      if(contratLocation.reservation.cout_total() >= paiement1.get_montant()){
+      if(contratLocation.reservation.cout_total() <= paiement1.get_montant()){
         contratLocation.ajouter_paiement(paiement1);
       }
       else{
