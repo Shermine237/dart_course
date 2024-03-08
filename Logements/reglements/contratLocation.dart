@@ -22,6 +22,8 @@ class ContratLocation with Periodique{
   }
 
   void remove_payment(Paiement paiement){
-    this.paiements.remove(paiement);
+    if (this.paiements.contains(paiement)) {
+      this.paiements.remove(paiement);
+    }
   }
 }

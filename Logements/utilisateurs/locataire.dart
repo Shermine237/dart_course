@@ -8,10 +8,9 @@ class Locataire extends Utilisateur{
 
   //Methods
   reserver_logement(Logement logement, DateTime debut, DateTime fin){
-    logement.set_periode(debut, fin);
-
     if(logement.est_disponible){
       this.logements_reserves.add(logement);
+      logement.reserver(debut, fin);
     }
     else{
       print("${logement.get_nom_logement()} n'est pas disponible.");

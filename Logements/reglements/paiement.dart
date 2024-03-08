@@ -1,8 +1,12 @@
-class Paiement{
+import '../mixins/notifiable.dart' show Notifiable;
+
+class Paiement with Notifiable{
   int _montant;
   DateTime _date_paiment;
 
-  Paiement(this._montant, this._date_paiment);
+  Paiement(this._montant, this._date_paiment){
+    this.afficher_notification('Notification de paiement', 'Un paiment de ${_montant} a ete ajoute le [${this._date_paiment}]');
+  }
 
   //Getters
   int get_montant(){
