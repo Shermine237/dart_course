@@ -2,6 +2,7 @@ import './reglements/paiement.dart' show Paiement;
 import './utilisateurs/locataire.dart' show Locataire;
 import 'reglements/reservation.dart' show Reservation;
 import './logements/logementVide.dart' show LogementVide;
+import './reglements/tarification.dart' show Tarification;
 import './utilisateurs/proprietaire.dart' show Proprietaire;
 import './logements/logementMeuble.dart' show LogementMeuble;
 import './utilisateurs/administrateur.dart' show Administrateur;
@@ -21,8 +22,8 @@ void main(){
   print('');
 
   //2. Gestion des Logements
-  LogementVide logement_vides1 = LogementVide("Duplex de rose", "Akwa", proprietaire1, DateTime(2024, 1, 1), DateTime(2024, 12, 1));
-  LogementMeuble logementMeuble1 = LogementMeuble("Villa de jouvence", "Deido", proprietaire1, DateTime(2024, 1, 1), DateTime(2024, 12, 1), "Meubles");
+  LogementVide logement_vides1 = LogementVide("Duplex de rose", "Akwa", proprietaire1, DateTime(2024, 1, 1), DateTime(2024, 12, 1), Tarification(500));
+  LogementMeuble logementMeuble1 = LogementMeuble("Villa de jouvence", "Deido", proprietaire1, DateTime(2024, 1, 1), DateTime(2024, 12, 1), Tarification(500), "Meubles");
   print('Proprietes de ${proprietaire1.get_nom()} :');
   for (var logement in proprietaire1.logements) {
     print('>> ${logement.get_nom_logement()}');
@@ -53,6 +54,9 @@ void main(){
       Paiement paiement1 = Paiement(50000, DateTime.now(), locataire1);
       if(contratLocation.reservation.cout_total() >= paiement1.get_montant()){
         contratLocation.ajouter_paiement(paiement1);
+      }
+      else{
+        print('Montant insuffisant pour reserver');
       }
     
       //4. Calendrier de Disponibilité

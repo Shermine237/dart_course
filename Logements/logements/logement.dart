@@ -11,7 +11,7 @@ abstract class Logement with Periodique, Commentable{
   late Tarification _tarif_jour;
   late String _description;
 
-  Logement(this._nom_logement, this._localisation, this.proprietaire, DateTime debut_disponibilite, DateTime fin_disponibilite){
+  Logement(this._nom_logement, this._localisation, this.proprietaire, DateTime debut_disponibilite, DateTime fin_disponibilite, this._tarif_jour){
     this.date_debut = debut_disponibilite;
     this.date_fin = fin_disponibilite;
     this.proprietaire.ajouter_logement(this);
