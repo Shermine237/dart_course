@@ -35,7 +35,7 @@ void main(){
   //3. Gestion des Locations
   ContratLocation contratLocation = ContratLocation(reservation1);
   print(contratLocation.statut_active);
-  Paiement paiement1 = Paiement(50000, DateTime.now());
+  Paiement paiement1 = Paiement(50000, DateTime.now(), locataire1);
   contratLocation.ajouter_paiement(paiement1);
 
 }
