@@ -12,7 +12,7 @@ class Locataire extends Utilisateur{
 
   //Methods
   reserver_logement(Logement logement, DateTime debut, DateTime fin){
-    if(logement.est_disponible){
+    if(!logement.est_reserve){
       Reservation reservation = Reservation(debut, fin, logement, this);
       _ajouter_reservation(this.reservations_en_attente, reservation);
       return reservation;

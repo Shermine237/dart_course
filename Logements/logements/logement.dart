@@ -7,11 +7,13 @@ abstract class Logement with Periodique, Commentable{
   String _nom_logement;
   String _localisation;
   Proprietaire proprietaire;
-  bool est_disponible = true;
+  bool est_reserve = false;
   late Tarification _tarif_jour;
   late String _description;
 
-  Logement(this._nom_logement, this._localisation, this.proprietaire){
+  Logement(this._nom_logement, this._localisation, this.proprietaire, DateTime debut_disponibilite, DateTime fin_disponibilite){
+    this.date_debut = debut_disponibilite;
+    this.date_fin = fin_disponibilite;
     this.proprietaire.ajouter_logement(this);
   }
 
@@ -43,10 +45,6 @@ abstract class Logement with Periodique, Commentable{
 
   void set_description(String description){
     _description = description;
-  }
-
-  void set_disponibility(bool disponibility){
-    this.est_disponible = disponibility;
   }
 
   void set_tarif_jour(Tarification tarif){
