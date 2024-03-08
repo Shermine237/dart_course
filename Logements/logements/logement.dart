@@ -1,15 +1,19 @@
 import '../reglements/tarification.dart' show Tarification;
+import '../utilisateurs/proprietaire.dart' show Proprietaire;
 import '../mixins/periodique.dart' show Periodique;
 import '../mixins/commentable.dart' show Commentable;
 
 abstract class Logement with Periodique, Commentable{
   String _nom_logement;
   String _localisation;
+  Proprietaire proprietaire;
   bool est_disponible = true;
   late Tarification _tarif_jour;
   late String _description;
 
-  Logement(this._nom_logement, this._localisation);
+  Logement(this._nom_logement, this._localisation, this.proprietaire){
+    this.proprietaire.ajouter_logement(this);
+  }
 
   //Getter
   String get_nom_logement(){

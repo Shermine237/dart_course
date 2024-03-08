@@ -1,12 +1,13 @@
 import './paiement.dart' show Paiement;
+import './reservation.dart' show Reservation;
 import '../mixins/periodique.dart' show Periodique;
 
 class ContratLocation with Periodique{
   bool statut_active = true;
-  String titre;
   List<Paiement> paiements = [];
+  Reservation reservation;
 
-  ContratLocation(this.titre);
+  ContratLocation(this.reservation);
 
   //Methods
   void activer(){
@@ -17,11 +18,11 @@ class ContratLocation with Periodique{
     this.statut_active = false;
   }
 
-  void add_payment(Paiement paiement){
+  void ajouter_paiement(Paiement paiement){
     this.paiements.add(paiement);
   }
 
-  void remove_payment(Paiement paiement){
+  void supprimer_paiement(Paiement paiement){
     if (this.paiements.contains(paiement)) {
       this.paiements.remove(paiement);
     }
