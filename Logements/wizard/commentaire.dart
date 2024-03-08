@@ -1,12 +1,13 @@
+import '../utilisateurs/locataire.dart' show Locataire;
 class Commentaire{
   int _note;
-  String _auteur;
+  Locataire _auteur;
   String _commentaire;
 
   Commentaire(this._auteur, this._note, this._commentaire);
 
   //Setter
-  void set_auteur(String auteur){
+  void set_auteur(Locataire auteur){
     _auteur = auteur;
   }
 
@@ -19,7 +20,7 @@ class Commentaire{
   }
 
   //Getter
-  String get_auteur(){
+  Locataire get_auteur(){
     return _auteur;
   }
 
@@ -33,7 +34,7 @@ class Commentaire{
 
   //Methods
   void afficher_commentaire(){
-    print('Auteur: ${_auteur}');
+    print('Auteur: ${_auteur.get_nom()}');
     print('Note: ${_note}');
     print('Commentaire: ${_commentaire}');
   }
