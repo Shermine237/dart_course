@@ -20,7 +20,6 @@ void main(){
   proprietaire1.se_presenter();
   print('');
 
-
   //2. Gestion des Logements
   LogementVide logement_vides1 = LogementVide("Duplex de rose", "Akwa", proprietaire1);
   LogementMeuble logementMeuble1 = LogementMeuble("Villa de jouvence", "Deido", proprietaire1, "Meubles");
@@ -28,14 +27,23 @@ void main(){
   for (var logement in proprietaire1.logements) {
     print('>> ${logement.get_nom_logement()}');
   }
+  print('');
 
   //Reservation
-  Reservation reservation1 = locataire1.reserver_logement(logementMeuble1, DateTime(2024, 1, 25), DateTime(2024, 5, 25));
+  if(logementMeuble1.est_disponible){
+    Reservation reservation1 = locataire1.reserver_logement(logementMeuble1, DateTime(2024, 1, 25), DateTime(2024, 5, 25));
+    print('Logements en reservation attente de ${locataire1.get_nom()} :');
+    for (var reservation in locataire1.reservations_en_attente) {
+      print('>> ${reservation.logement.get_nom_logement()}');
+    }
 
-  //3. Gestion des Locations
-  ContratLocation contratLocation = ContratLocation(reservation1);
-  print(contratLocation.statut_active);
-  Paiement paiement1 = Paiement(50000, DateTime.now(), locataire1);
-  contratLocation.ajouter_paiement(paiement1);
+    //3. Gestion des Locations
+    ContratLocation contratLocation = ContratLocation(reservation1);
+    Paiement paiement1 = Paiement(50000, DateTime.now(), locataire1);
+    contratLocation.ajouter_paiement(paiement1);
+  }
+  else{
+    print("${logementMeuble1.get_nom_logement()} n'est pas disponible.");
+  }
 
 }

@@ -15,9 +15,7 @@ class Locataire extends Utilisateur{
     if(logement.est_disponible){
       Reservation reservation = Reservation(debut, fin, logement, this);
       _ajouter_reservation(this.reservations_en_attente, reservation);
-    }
-    else{
-      print("${logement.get_nom_logement()} n'est pas disponible.");
+      return reservation;
     }
   }
 
@@ -29,6 +27,8 @@ class Locataire extends Utilisateur{
     if (!liste.contains(reservation)) {
       liste.add(reservation);
     }
- print('${this.get_nom()} a deja une reservation de ${reservation.logement.get_nom_logement()}');
+    else{
+      print('${this.get_nom()} a deja une reservation de ${reservation.logement.get_nom_logement()}');
+    }
   }
 }
