@@ -1,4 +1,6 @@
-abstract class Utilisateur{
+import '../mixins/notifiable.dart' show Notifiable;
+
+abstract class Utilisateur with Notifiable{
   String _nom;
   String _email;
   String role = "";

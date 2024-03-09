@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import './utilisateur.dart' show Utilisateur;
 import '../logements/logement.dart' show Logement;
 import '../wizard/commentaire.dart' show Commentaire;
@@ -38,5 +40,6 @@ class Locataire extends Utilisateur{
     Commentaire commentaire = Commentaire(this, note, message, date);
     logement.ajouter_commentaire(commentaire);
     this.commentaires.add(commentaire);
+    this.afficher_notification('Nouveau Commentaire', '${this.get_nom()} a laisse un commentaire sur le logement ${logement.get_nom_logement()}');
   }
 }

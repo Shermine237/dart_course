@@ -3,7 +3,7 @@ mixin Commentable{
   List<Commentaire> commentaires = [];
 
   void afficher_commentaires(){
-    print('>> COMMENTAIRES <<');
+    print('>> TOUS LES COMMENTAIRES <<');
     for (var commentaire in this.commentaires) {
       commentaire.afficher_commentaire();
       print('...');

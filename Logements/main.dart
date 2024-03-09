@@ -72,7 +72,10 @@ void main(){
   //6.  Notifications et Commentaires
   locataire1.commenter('Beau mais trop cher', 3, DateTime.now(), logementMeuble1);
   locataire1.commenter('Trop bien', 4, DateTime.now(), logementMeuble1);
+  print('');
   logementMeuble1.afficher_commentaires();
   print('');
+
+  //7. Statistiques et Rapports
 
 }
