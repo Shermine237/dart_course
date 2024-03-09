@@ -1,14 +1,11 @@
 import '../utilisateurs/locataire.dart' show Locataire;
-import '../mixins/notifiable.dart' show Notifiable;
 
-class Paiement with Notifiable{
+class Paiement{
   int _montant;
   DateTime _date_paiment;
   Locataire locataire;
 
-  Paiement(this._montant, this._date_paiment, this.locataire){
-    this.afficher_notification('Notification de paiement', 'Un paiment de ${_montant} a ete ajoute le [${this._date_paiment}] par ${this.locataire.get_nom()}');
-  }
+  Paiement(this._montant, this._date_paiment, this.locataire);
 
   //Getters
   int get_montant(){

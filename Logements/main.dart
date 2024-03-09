@@ -32,14 +32,15 @@ void main(){
 
   //Reservation
   if(logementMeuble1.est_reserve){
-    print("${logementMeuble1.get_nom_logement()} n'est pas disponible.");
+    print("${logementMeuble1.get_nom_logement()} est deja reserve.");
   }
   else{
     Reservation reservation1 = locataire1.reserver_logement(logementMeuble1, DateTime(2024, 1, 25), DateTime(2024, 5, 25));
   }
 
   if(logement_vides1.est_reserve){
-    print("${logement_vides1.get_nom_logement()} n'est pas disponible.");
+    print("${logement_vides1.get_nom_logement()} est deja reserve.");
+    print('');
   }
   else{
     Reservation reservation2 = locataire1.reserver_logement(logement_vides1, DateTime(2024, 2, 12), DateTime(2024, 9, 15));
@@ -47,22 +48,31 @@ void main(){
     for (var reservation in locataire1.reservations_en_attente) {
       print('>> ${reservation.logement.get_nom_logement()}');
     }
+    print('');
 
     //3. Gestion des Locations
     if(reservation2.disponible){
       ContratLocation contratLocation = ContratLocation(reservation2);
-      Paiement paiement1 = Paiement(50000, DateTime.now(), locataire1);
-      if(contratLocation.reservation.cout_total() <= paiement1.get_montant()){
-        contratLocation.ajouter_paiement(paiement1);
+      Paiement paiement1 = Paiement(5000000000, DateTime.now(), locataire1);
+      bool statut_paiement = contratLocation.ajouter_paiement(paiement1);
+      print('');
+      if(statut_paiement){
+        contratLocation.reservation.confirner();
       }
-      else{
-        print('Montant insuffisant pour reserver');
-      }
-    
-      //4. Calendrier de Disponibilité
-      logement_vides1.afficher_periode();
     }
+    print('');
   }
+  //4. Calendrier de Disponibilité
+  logement_vides1.afficher_periode();
+  print('');
 
+  //5. Gestion des Tarifs
+  logementMeuble1.set_tarif_jour(Tarification(25000));
+
+  //6.  Notifications et Commentaires
+  locataire1.commenter('Beau mais trop cher', 3, DateTime.now(), logementMeuble1);
+  locataire1.commenter('Trop bien', 4, DateTime.now(), logementMeuble1);
+  logementMeuble1.afficher_commentaires();
+  print('');
 
 }

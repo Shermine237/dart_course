@@ -1,10 +1,12 @@
 import './utilisateur.dart' show Utilisateur;
-import '../reglements/reservation.dart' show Reservation;
 import '../logements/logement.dart' show Logement;
+import '../wizard/commentaire.dart' show Commentaire;
+import '../reglements/reservation.dart' show Reservation;
 
 class Locataire extends Utilisateur{
   List<Reservation> reservations_en_attente = [];
   List<Reservation> reservations = [];
+  List<Commentaire> commentaires = [];
 
   Locataire(super.nom, super.email){
     this.role = "Locataire";
@@ -30,5 +32,11 @@ class Locataire extends Utilisateur{
     else{
       print('${this.get_nom()} a deja une reservation de ${reservation.logement.get_nom_logement()}');
     }
+  }
+
+  void commenter(String message, int note, DateTime date, Logement logement){
+    Commentaire commentaire = Commentaire(this, note, message, date);
+    logement.ajouter_commentaire(commentaire);
+    this.commentaires.add(commentaire);
   }
 }

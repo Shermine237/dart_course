@@ -1,10 +1,11 @@
 import '../utilisateurs/locataire.dart' show Locataire;
 class Commentaire{
   int _note;
+  DateTime date;
   Locataire _auteur;
   String _commentaire;
 
-  Commentaire(this._auteur, this._note, this._commentaire);
+  Commentaire(this._auteur, this._note, this._commentaire, this.date);
 
   //Setter
   void set_auteur(Locataire auteur){
@@ -37,5 +38,6 @@ class Commentaire{
     print('Auteur: ${_auteur.get_nom()}');
     print('Note: ${_note}');
     print('Commentaire: ${_commentaire}');
+    print('Date: ${date}');
   }
 }

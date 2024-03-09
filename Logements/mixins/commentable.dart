@@ -3,14 +3,15 @@ mixin Commentable{
   List<Commentaire> commentaires = [];
 
   void afficher_commentaires(){
+    print('>> COMMENTAIRES <<');
     for (var commentaire in this.commentaires) {
       commentaire.afficher_commentaire();
       print('...');
     }
   }
 
-  void ajouter_commentaire(Commentaire commantaire){
-    this.commentaires.add(commantaire);
+  void ajouter_commentaire(Commentaire commentaire){
+    this.commentaires.add(commentaire);
   }
 
   void supprimer_commentaire(Commentaire commentaire){

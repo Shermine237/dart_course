@@ -22,7 +22,7 @@ class Reservation with Notifiable, Periodique{
 
   void confirner(){
     if(this.disponible){
-      this.afficher_notification('Confirmation de Reservation', 'Le logement ${this.logement.get_nom_logement()} a ete confirme');
+      this.afficher_notification('Confirmation de Reservation', 'Le logement ${this.logement.get_nom_logement()} a ete reserve par ${this.locataire.get_nom()} du ${this.date_debut} au ${this.date_fin}');
       this.locataire.enregistrer_reservation(this);
       this.est_confirme = true;
       this.logement.est_reserve = true;
