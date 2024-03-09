@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import './utilisateur.dart' show Utilisateur;
 import '../logements/logement.dart' show Logement;
 import '../wizard/commentaire.dart' show Commentaire;
