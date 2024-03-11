@@ -1,7 +1,8 @@
 import './utilisateur.dart' show Utilisateur;
 import '../logements/logement.dart' show Logement;
+import '../mixins/reportable.dart' show Reportable;
 
-class Proprietaire extends Utilisateur{
+class Proprietaire extends Utilisateur with Reportable{
   List<Logement> logements = [];
 
   Proprietaire(super.nom, super.email){

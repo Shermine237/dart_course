@@ -1,3 +1,4 @@
+import '../reports/rapportRevenu.dart';
 import './paiement.dart' show Paiement;
 import './reservation.dart' show Reservation;
 import '../mixins/periodique.dart' show Periodique;
@@ -23,6 +24,7 @@ class ContratLocation with Periodique, Notifiable{
     if(this.reservation.cout_total() <= paiement.get_montant()){
       this.paiements.add(paiement);
       this.afficher_notification('Notification de paiement', 'Un paiment de ${paiement.get_montant()} a ete ajoute le [${paiement.get_date_paiment()}] par ${this.reservation.locataire.get_nom()}');
+      this.reservation.logement.proprietaire.ajouter_rapport(RapportRevenu(DateTime.now());
       return true;
     }
     print('Montant insuffisant pour reserver');
