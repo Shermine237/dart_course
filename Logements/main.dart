@@ -72,6 +72,7 @@ void main(){
   }
   //4. Calendrier de Disponibilité
   logement_vides1.afficher_periode();
+  logementMeuble1.afficher_periode();
   print('');
 
   //5. Gestion des Tarifs
