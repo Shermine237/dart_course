@@ -58,7 +58,7 @@ abstract class Logement with Periodique, Commentable{
   @override
   // Herite du code de '../mixin/periodique.dart'
   void afficher_periode() {
-    print('Disponible du ${this.date_debut} au ${this.date_fin}');
+    print('${this.get_nom_logement()} Disponible du ${this.date_debut} au ${this.date_fin}');
   }
 
   void ajouter_occupant(Locataire occupant, DateTime debut, DateTime fin){
