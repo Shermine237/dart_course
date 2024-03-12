@@ -77,6 +77,8 @@ void main(){
 
   //5. Gestion des Tarifs
   logementMeuble1.set_tarif_jour(Tarification(25000));
+  print("Tarif de ${logementMeuble1.get_nom_logement()} : ${logementMeuble1.get_tarif_jour().get_tarif_jour()}");
+  print('');
 
   //6.  Notifications et Commentaires
   locataire1.commenter('Beau mais trop cher', 3, DateTime.now(), logementMeuble1);
