@@ -1,3 +1,5 @@
+import '../reglements/occupation.dart' show Occupation;
+import '../utilisateurs/locataire.dart' show Locataire;
 import '../reglements/tarification.dart' show Tarification;
 import '../utilisateurs/proprietaire.dart' show Proprietaire;
 import '../mixins/periodique.dart' show Periodique;
@@ -10,6 +12,7 @@ abstract class Logement with Periodique, Commentable{
   bool est_reserve = false;
   late Tarification _tarif_jour;
   late String _description;
+  List<Occupation> occupations = [];
 
   Logement(this._nom_logement, this._localisation, this.proprietaire, DateTime debut_disponibilite, DateTime fin_disponibilite, this._tarif_jour){
     this.date_debut = debut_disponibilite;
@@ -58,4 +61,17 @@ abstract class Logement with Periodique, Commentable{
     print('Disponible du ${this.date_debut} au ${this.date_fin}');
   }
 
+  void ajouter_occupant(Locataire occupant, DateTime debut, DateTime fin){
+    Occupation occupation = Occupation(occupant, debut, fin);
+    if (!this.occupations.contains(occupation)) {
+      this.occupations.add(occupation);
+    }
+  }
+
+  void afficher_statistique(){
+    print("Historique d'occupation de ${this.get_nom_logement()}");
+    for (var occupation in this.occupations) {
+      print(">> Du ${occupation.date_debut} au ${occupation.date_fin} par ${occupation.occupant.get_nom()}");
+    }
+  }
 }

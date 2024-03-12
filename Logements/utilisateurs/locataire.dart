@@ -2,8 +2,9 @@ import './utilisateur.dart' show Utilisateur;
 import '../logements/logement.dart' show Logement;
 import '../wizard/commentaire.dart' show Commentaire;
 import '../reglements/reservation.dart' show Reservation;
+import '../mixins/reportable.dart' show Reportable;
 
-class Locataire extends Utilisateur{
+class Locataire extends Utilisateur with Reportable{
   List<Reservation> reservations_en_attente = [];
   List<Reservation> reservations = [];
   List<Commentaire> commentaires = [];

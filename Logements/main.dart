@@ -53,10 +53,18 @@ void main(){
     //3. Gestion des Locations
     if(reservation2.disponible){
       ContratLocation contratLocation = ContratLocation(reservation2);
-      Paiement paiement1 = Paiement(5000000000, DateTime.now(), locataire1);
+
+      Paiement paiement1 = Paiement(5000000000, DateTime.now(), locataire1, "Paiement pour la reservation de ${contratLocation.reservation.logement.get_nom_logement()} du ${contratLocation.reservation.date_debut} au ${contratLocation.reservation.date_fin} pour ${contratLocation.reservation.locataire.get_nom()}");
+    
+      Paiement paiement2 = Paiement(3000000000, DateTime.now(), locataire1, "Paiement pour la reservation de ${contratLocation.reservation.logement.get_nom_logement()} du ${contratLocation.reservation.date_debut} au ${contratLocation.reservation.date_fin} pour ${contratLocation.reservation.locataire.get_nom()}");
+
       bool statut_paiement = contratLocation.ajouter_paiement(paiement1);
+      bool statut_paiement2 = contratLocation.ajouter_paiement(paiement2);
       print('');
       if(statut_paiement){
+        contratLocation.reservation.confirner();
+      }
+      if(statut_paiement2){
         contratLocation.reservation.confirner();
       }
     }
@@ -77,5 +85,13 @@ void main(){
   print('');
 
   //7. Statistiques et Rapports
-
+  print('Rapport de Revenu du proprietaire ${proprietaire1.get_nom()}');
+  proprietaire1.afficher_rapport_annuel(2024);
+  print('');
+  proprietaire1.afficher_rapport_mensuel(3);
+  print('');
+  print('Rapport de Depense du locataire ${locataire1.get_nom()}');
+  locataire1.afficher_rapport_mensuel(3);
+  print('');
+  logement_vides1.afficher_statistique();
 }
